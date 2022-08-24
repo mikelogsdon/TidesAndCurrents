@@ -267,26 +267,12 @@ makeNotes <- function() {
     "Current support is for Alaska, Washington, and Oregon on the west coast of the United States. This tool stores the 25 most extreme tides by station and by year, and more detailed graphics are created by querying NOAA in real time.</p>",
     "<p>The tool is meant to be useful for learning in general about tidal patterns, for example the extremes of Alaska's Cook Inlet versus the much milder tides of the Arctic Ocean versus the Bactrian Camel tides of Puget Sound.",
     "In addition, it is intended to be used for finding specific, interesting tides by location.",
-    "For example, I live in the Puget Sound region of Washington, and I may be interested in the largest minus tide of the year at the nearest beach, or more broadly I might be interested in planning around the largest minus tide in the area in the next ten years.</p>"
-    # "<h5>Credits</h5>",
-    # "<p>The idea for this tool came from a conversation with Ruth Hulbert, a bookseller and artist in Palmer, Alaska, and Cynthia Hansen, a lab tech in Bellingham, Washington.",
+    "For example, I live in the Puget Sound region of Washington, and I may be interested in the largest minus tide of the year at the nearest beach, or more broadly I might be interested in planning around the largest minus tide in the area in the next ten years.</p>",
+    "<h5>Credits</h5>",
+    "<p>The idea for this tool came from a conversation with Ruth Hulbert, a bookseller and artist in Palmer, Alaska, and Cynthia Hansen, a lab tech in Bellingham, Washington.",
     # "<p>This idea was pitched and first explored by Ruth Hulbert, a bookseller and artist in Palmer, Alaska, and Cynthia Hansen, a lab tech in Bellingham, Washington.",
-    # "The tool was built by Mike Logsdon, a data analyst in Seattle, Washington. All three are considerable beach enthusiasts.</p>"
+    "The tool was built by Mike Logsdon, a data analyst in Seattle, Washington. All three are considerable beach enthusiasts.</p>"
   )
-}
-
-
-
-writeComment <- function(name, email, comment) {
-  api_token = "xoxb-6921139457-XOh4FpYyTShXPHehGgdFkqIb"
-  
-  chatText <- sprintf("On %s, %s at %s says the following:\n%s", lubridate::now(), name, email, comment)
-  
-  httr::POST(url = "https://slack.com/api/chat.postMessage",
-             body = list(token = api_token, channel = "@mltheproducer",
-                         username = "fake_professor_sled",
-                         text = chatText,
-                         icon_url = "https://pbs.twimg.com/profile_images/573181116561014784/zwXSbgvh.jpeg"))
 }
 
 
