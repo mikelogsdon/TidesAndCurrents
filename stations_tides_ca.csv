@@ -1,0 +1,208 @@
+﻿state,group,subgroup,Name,Id,Lat,Lon,Predictions
+California,    Baja California,,        San Carlos,TWC0399,24.7833,-112.1167,Subordinate
+California,    Baja California,,        Isla Guadalupe,TWC0401,28.8833,-116.3,Subordinate
+California,    Baja California,,"        Ensenada, Todos Santos Bay",TWC0403,31.85,-116.6333,Subordinate
+California,    Southern California,,        Imperial Beach,9410120,32.5783,-117.135,Subordinate
+California,    Southern California,,        Point Loma,TWC0405,32.6667,-117.2333,Subordinate
+California,    Southern California,,"        San Diego, Quarantine Station",9410166,32.7033,-117.235,Subordinate
+California,    Southern California,,        SAN DIEGO (Broadway),9410170,32.7142,-117.1736,Harmonic
+California,    Southern California,,"        National City, San Diego Bay",9410152,32.665,-117.118,Subordinate
+California,    Southern California,,        South San Diego Bay,9410135,32.6291,-117.1078,Harmonic
+California,    Southern California,,"        Quivira Basin, Mission Bay",TWC0413,32.7667,-117.2333,Subordinate
+California,    Southern California,,"        Mission Bay, Campland",9410196,32.7937,-117.2238,Harmonic
+California,    Southern California,,        La Jolla (Scripps Institution Wharf),9410230,32.8669,-117.2571,Harmonic
+California,    Southern California,,        San Clemente,TWC0419,33.4167,-117.6167,Subordinate
+California,    San Pedro Channel,,"        Newport Bay Entrance, Corona del Mar",9410580,33.6033,-117.883,Harmonic
+California,    San Pedro Channel,,"        Balboa Pier, Newport Beach",9410583,33.6,-117.9,Subordinate
+California,    San Pedro Channel,,        Santa Ana River entrance (inside),9410599,33.63,-117.958,Subordinate
+California,    San Pedro Channel,,        Los Patos (highway bridge),TWC0427,33.7167,-118.05,Subordinate
+California,    San Pedro Channel,,"        Long Beach, Terminal Island",9410680,33.7517,-118.227,Harmonic
+California,    San Pedro Channel,,"        Long Beach, Inner Harbor",9410686,33.7717,-118.21,Subordinate
+California,    San Pedro Channel,,        Cabrillo Beach,9410650,33.7067,-118.273,Subordinate
+California,    San Pedro Channel,,        LOS ANGELES (Outer Harbor),9410660,33.7199,-118.2729,Harmonic
+California,    San Pedro Channel,,"        Los Angeles Harbor, Mormon Island",TWC0439,33.75,-118.2667,Subordinate
+California,    San Pedro Channel,,"        King Harbor, Santa Monica Bay",9410738,33.8467,-118.398,Subordinate
+California,    San Pedro Channel,,"        El Segundo, Santa Monica Bay",9410777,33.9083,-118.433,Subordinate
+California,    San Pedro Channel,,"        Santa Monica, Municipal Pier",9410840,34.0083,-118.5,Harmonic
+California,    Santa Barbara Channel,,        Mugu Lagoon (ocean pier),TWC0445,34.1,-119.1,Subordinate
+California,    Santa Barbara Channel,,        Port Hueneme,9411065,34.1483,-119.203,Subordinate
+California,    Santa Barbara Channel,,        Ventura,9411189,34.2667,-119.283,Subordinate
+California,    Santa Barbara Channel,,"        Rincon Island, Mussel Shoals",9411270,34.3483,-119.443,Subordinate
+California,    Santa Barbara Channel,,        Santa Barbara,9411340,34.4031,-119.6928,Harmonic
+California,    Santa Barbara Channel,,"        Gaviota State Park, Pacific Ocean",9411399,34.4694,-120.2283,Harmonic
+California,    Santa Barbara Channel,,        Oil Platform Harvest,9411406,34.4692,-120.6819,Harmonic
+California,    Santa Barbara Islands,,"        Wilson Cove, San Clemente Island",9410032,33.005,-118.557,Harmonic
+California,    Santa Barbara Islands,,"        Catalina Harbor, Santa Catalina Island",9410092,33.4317,-118.503,Subordinate
+California,    Santa Barbara Islands,,"        Avalon, Santa Catalina Island",9410079,33.345,-118.325,Harmonic
+California,    Santa Barbara Islands,,        Santa Barbara Island,TWC0463,33.4833,-119.0333,Subordinate
+California,    Santa Barbara Islands,,        San Nicolas Island,9410068,33.2667,-119.497,Subordinate
+California,    Santa Barbara Islands,,"        Prisoners Harbor, Santa Cruz Island",9410971,34.02,-119.683,Subordinate
+California,    Santa Barbara Islands,,"        Bechers Bay, Santa Rosa Island",9410962,34.0083,-120.047,Subordinate
+California,    Santa Barbara Islands,,"        Cuyler Harbor, San Miguel Island",9410988,34.0567,-120.355,Subordinate
+California,"    Outer Coast, Port San Luis",,        Point Arguello,TWC0473,34.5833,-120.65,Subordinate
+California,"    Outer Coast, Port San Luis",,        PORT SAN LUIS,9412110,35.1688,-120.7542,Harmonic
+California,"    Outer Coast, Port San Luis",,        San Simeon,9412553,35.6417,-121.188,Subordinate
+California,"    Outer Coast, Port San Luis",,        Mansfield Cone,9412802,35.9495,-121.4819,Harmonic
+California,"    Outer Coast, Port San Luis",,"        Carmel Cove, Carmel Bay",9413375,36.52,-121.94,Subordinate
+California,"    Outer Coast, Port San Luis",        Monterey Bay,"            MONTEREY, MONTEREY BAY",9413450,36.605,-121.8881,Harmonic
+California,"    Outer Coast, Port San Luis",        Monterey Bay,            General Fish Company Pier,9413617,36.8017,-121.787,Subordinate
+California,"    Outer Coast, Port San Luis",        Monterey Bay,"            Moss Landing, Ocean Pier",9413616,36.8017,-121.79,Subordinate
+California,"    Outer Coast, Port San Luis",        Monterey Bay,            Elkhorn Yacht Club,9413626,36.8133,-121.787,Subordinate
+California,"    Outer Coast, Port San Luis",        Monterey Bay,"            Elkhorn Slough, Highway 1 Bridge",9413623,36.81,-121.785,Subordinate
+California,"    Outer Coast, Port San Luis",        Monterey Bay,            Pacific Mariculture Dock,9413624,36.8133,-121.758,Subordinate
+California,"    Outer Coast, Port San Luis",        Monterey Bay,"            Elkhorn, Elkhorn Slough",9413631,36.8183,-121.747,Harmonic
+California,"    Outer Coast, Port San Luis",        Monterey Bay,"            Tidal Creek, Elkhorn Slough",9413643,36.8333,-121.745,Harmonic
+California,"    Outer Coast, Port San Luis",        Monterey Bay,"            Kirby Park, Elkhorn Slough",9413651,36.8413,-121.7453,Harmonic
+California,"    Outer Coast, Port San Luis",        Monterey Bay,            Elkhorn Slough railroad bridge,9413663,36.8567,-121.755,Harmonic
+California,"    Outer Coast, Port San Luis",        Monterey Bay,"            Santa Cruz, Monterey Bay",9413745,36.9583,-122.017,Subordinate
+California,"    Outer Coast, Port San Luis",,        Ano Nuevo Island,9413878,37.1083,-122.338,Subordinate
+California,"    Outer Coast, Port San Luis",,"        Pillar Point Harbor, Half Moon Bay",9414131,37.5025,-122.4822,Harmonic
+California,"    Outer Coast, Port San Luis",,        Southeast Farallon Island,9414262,37.7,-123,Subordinate
+California,"    Outer Coast, Port San Luis",,        San Francisco Bar,TWC0509,37.7667,-122.6333,Subordinate
+California,"    Outer Coast, Port San Luis",,"        Ocean Beach, outer coast",9414275,37.775,-122.513,Subordinate
+California,    San Francisco Bay,,"        Point Bonita, Bonita Cove",9414906,37.8183,-122.528,Subordinate
+California,    San Francisco Bay,,        SAN FRANCISCO (Golden Gate),9414290,37.8063,-122.4659,Harmonic
+California,    San Francisco Bay,,        Alcatraz Island,9414792,37.8267,-122.417,Subordinate
+California,    San Francisco Bay,,"        San Francisco, North Point, Pier 41",9414305,37.81,-122.413,Subordinate
+California,    San Francisco Bay,,"        Rincon Point, Pier 22 1/2",9414317,37.79,-122.387,Harmonic
+California,    San Francisco Bay,,        Yerba Buena Island,9414782,37.81,-122.36,Subordinate
+California,    San Francisco Bay,,"        Oakland, Matson Wharf",9414779,37.81,-122.327,Subordinate
+California,    San Francisco Bay,,        Oakland Middle Harbor,9414777,37.805,-122.338,Subordinate
+California,    San Francisco Bay,,        Oakland Pier,9414765,37.795,-122.33,Subordinate
+California,    San Francisco Bay,,        Oakland Inner Harbor,9414764,37.795,-122.282,Harmonic
+California,    San Francisco Bay,,        Alameda Naval Air Station,9414767,37.7933,-122.315,Subordinate
+California,    San Francisco Bay,,        Alameda,9414750,37.7717,-122.3,Harmonic
+California,    San Francisco Bay,,"        Oakland Harbor, Grove Street",9414763,37.795,-122.283,Subordinate
+California,    San Francisco Bay,,"        Oakland Harbor, Park Street Bridge",9414746,37.7717,-122.235,Harmonic
+California,    San Francisco Bay,,"        San Leandro Channel, San Leandro Bay",9414724,37.7483,-122.235,Subordinate
+California,    San Francisco Bay,,        Oakland Airport,9414711,37.7317,-122.208,Subordinate
+California,    San Francisco Bay,,        Potrero Point,9414334,37.7583,-122.383,Subordinate
+California,    San Francisco Bay,,        Hunters Point,9414358,37.73,-122.357,Harmonic
+California,    San Francisco Bay,,        San Leandro Marina,9414688,37.695,-122.192,Harmonic
+California,    San Francisco Bay,,"        Roberts Landing, 1.3 miles west of",TWC0547,37.6667,-122.2,Subordinate
+California,    San Francisco Bay,,        South San Francisco,9414391,37.6667,-122.39,Subordinate
+California,    San Francisco Bay,,        Oyster Point Marina,9414392,37.665,-122.377,Subordinate
+California,    San Francisco Bay,,        Point San Bruno,9414402,37.65,-122.377,Subordinate
+California,    San Francisco Bay,,        Seaplane Harbor,9414413,37.6367,-122.383,Subordinate
+California,    San Francisco Bay,,        Coyote Point Marina,9414449,37.5917,-122.313,Subordinate
+California,    San Francisco Bay,,        San Mateo Bridge (west end),9414458,37.58,-122.253,Harmonic
+California,    San Francisco Bay,,        San Mateo Bridge (east end),9414637,37.6083,-122.182,Subordinate
+California,    San Francisco Bay,,        Alameda Creek,9414632,37.595,-122.145,Subordinate
+California,    San Francisco Bay,,        Coyote Hills Slough entrance,9414621,37.5633,-122.128,Subordinate
+California,    San Francisco Bay,,"        Bay Slough, west end",9414483,37.5517,-122.243,Subordinate
+California,    San Francisco Bay,,"        Bay Slough, east end",9414486,37.545,-122.222,Subordinate
+California,    San Francisco Bay,,        Redwood Creek Marker 8,9414501,37.5333,-122.193,Subordinate
+California,    San Francisco Bay,,        South Bay Wreck,9414609,37.5517,-122.162,Subordinate
+California,    San Francisco Bay,,        Corkscrew Slough,9414505,37.5083,-122.21,Subordinate
+California,    San Francisco Bay,,"        Redwood City, Wharf 5",9414523,37.5067,-122.21,Harmonic
+California,    San Francisco Bay,,        West Point Slough,9414507,37.505,-122.192,Subordinate
+California,    San Francisco Bay,,        Smith Slough,9414511,37.5017,-122.223,Subordinate
+California,    San Francisco Bay,,        Newark Slough,9414506,37.5133,-122.08,Subordinate
+California,    San Francisco Bay,,        Dumbarton Highway Bridge,9414509,37.5067,-122.115,Harmonic
+California,    San Francisco Bay,,"        Granite Rock, Redwood Creek",9414513,37.495,-122.213,Subordinate
+California,    San Francisco Bay,,        Palo Alto Yacht Harbor,9414525,37.4583,-122.105,Subordinate
+California,    San Francisco Bay,,        Mowry Slough,9414519,37.4933,-122.042,Subordinate
+California,    San Francisco Bay,,"        Calaveras Point, west of",9414539,37.4667,-122.067,Subordinate
+California,    San Francisco Bay,,        Upper Guadalupe Slough,9414549,37.435,-122.007,Subordinate
+California,    San Francisco Bay,,"        Coyote Creek, Alviso Slough",9414575,37.465,-122.023,Harmonic
+California,    San Francisco Bay,,"        Gold Street Bridge, Alviso Slough",9414551,37.4233,-121.975,Subordinate
+California,    San Francisco Bay,,"        Coyote Creek, Tributary no.1",9414561,37.4467,-121.963,Subordinate
+California,    San Francisco Bay,,        Sausalito,9414806,37.8467,-122.477,Subordinate
+California,    San Francisco Bay,,"        Sausalito, Corps of Engineers Dock",9414819,37.865,-122.493,Subordinate
+California,    San Francisco Bay,,        Angel Island (west side),9414817,37.86,-122.443,Subordinate
+California,    San Francisco Bay,,"        Angel Island, East Garrison",9414818,37.8633,-122.42,Subordinate
+California,    San Francisco Bay,,        Point Chauncey,9414837,37.8917,-122.443,Subordinate
+California,    San Francisco Bay,,        Berkeley,9414816,37.865,-122.307,Harmonic
+California,    San Francisco Bay,,        Point Isabel,9414843,37.8983,-122.32,Subordinate
+California,    San Francisco Bay,,        Richmond Inner Harbor,9414849,37.91,-122.358,Subordinate
+California,    San Francisco Bay,,"        Chevron Oil Company Pier, Richmond",9414863,37.9283,-122.4,Harmonic
+California,    San Francisco Bay,,        Point Orient,9414881,37.9583,-122.425,Subordinate
+California,    San Francisco Bay,,        Corte Madera Creek,9414874,37.9433,-122.513,Harmonic
+California,    San Francisco Bay,,        Point San Quentin,9414873,37.945,-122.475,Subordinate
+California,    Carquinez Strait,,        Mare Island,9415218,38.07,-122.25,Harmonic
+California,    Carquinez Strait,,"        Vallejo, Mare Island Strait",9415165,38.1117,-122.273,Subordinate
+California,    Carquinez Strait,,"        Edgerley Island, Napa River",9415415,38.1917,-122.312,Subordinate
+California,    Carquinez Strait,,"        Brazos Drawbridge, Napa River",9415446,38.21,-122.307,Subordinate
+California,    Carquinez Strait,,"        Napa, Napa River",9415623,38.2983,-122.28,Subordinate
+California,    Carquinez Strait,,        Selby,9415142,38.0583,-122.243,Subordinate
+California,    Carquinez Strait,,        Crockett,9415143,38.0583,-122.223,Harmonic
+California,    Carquinez Strait,,        Benicia,9415111,38.0433,-122.13,Subordinate
+California,    Carquinez Strait,,        Martinez-Amorco Pier,9415102,38.0346,-122.1252,Harmonic
+California,    Suisun Bay,,        Suisun Slough entrance,9415265,38.1283,-122.073,Harmonic
+California,    Suisun Bay,,"        Pierce Harbor, Goodyear Slough",9415266,38.1267,-122.1,Subordinate
+California,    Suisun Bay,,"        Joice Island, Suisun Slough",9415379,38.18,-122.045,Subordinate
+California,    Suisun Bay,,"        Suisun City, Suisun Slough",9415498,38.2367,-122.03,Subordinate
+California,    Suisun Bay,,"        PORT CHICAGO, SUISUN BAY",9415144,38.056,-122.0395,Harmonic
+California,    Suisun Bay,,        Montezuma Slough Bridge,9415402,38.1867,-121.98,Subordinate
+California,    Suisun Bay,,"        Bradmoor Island, Nurse Slough",9414811,38.1833,-121.923,Harmonic
+California,    Suisun Bay,,"        Meins Landing, Montezuma Slough",9415307,38.1367,-121.907,Subordinate
+California,    Suisun Bay,,        Montezuma Slough,9415205,38.0767,-121.885,Subordinate
+California,    Suisun Bay,,        Point Buckler,9415227,38.1,-122.033,Subordinate
+California,    Suisun Bay,,        Mallard Island Ferry Wharf,9415112,38.0433,-121.918,Harmonic
+California,    Suisun Bay,,"        Pittsburg, New York Slough",9415096,38.0367,-121.88,Subordinate
+California,    San Joaquin River,,        Antioch,9415064,38.02,-121.815,Harmonic
+California,    San Joaquin River,,        Threemile Slough entrance,9415193,38.0867,-121.685,Subordinate
+California,    San Joaquin River,,        Prisoners Point,9415149,38.0617,-121.555,Subordinate
+California,    San Joaquin River,,"        Wards Island, Little Connection Slough",9415105,38.05,-121.4969,Subordinate
+California,    San Joaquin River,,        Blackslough Landing,9415021,37.9947,-121.419,Subordinate
+California,    San Joaquin River,,        Stockton,9414883,37.9583,-121.29,Subordinate
+California,    San Joaquin River,        Mokelumne River,            Georgiana Slough entrance,9415287,38.125,-121.578,Subordinate
+California,    San Joaquin River,        Mokelumne River,"            Terminous, South Fork",9415257,38.11,-121.498,Subordinate
+California,    San Joaquin River,        Mokelumne River,            New Hope Bridge,9415478,38.2267,-121.49,Subordinate
+California,    San Joaquin River,,"        Bishop Cut, Disappointment Slough",9415117,38.045,-121.42,Subordinate
+California,    San Joaquin River,,        False River,9415145,38.055,-121.657,Subordinate
+California,    San Joaquin River,,        Dutch Slough,9415053,38.0117,-121.638,Subordinate
+California,    San Joaquin River,,"        Irish Landing, Sand Mound Slough",9415095,38.0333,-121.583,Subordinate
+California,    San Joaquin River,,"        Orwood, Old River",9414868,37.9383,-121.56,Subordinate
+California,    San Joaquin River,,"        Holt, Whiskey Slough",9414866,37.935,-121.435,Subordinate
+California,    San Joaquin River,,"        Borden Highway Bridge, Old River",9414836,37.8833,-121.577,Subordinate
+California,    San Joaquin River,,"        Borden Highway Bridge, Middle River",9414835,37.8917,-121.488,Subordinate
+California,    San Joaquin River,,"        Borden Highway Bridge, San Joaquin River",9414367,37.9367,-121.3333,Subordinate
+California,    San Joaquin River,,        Grant Line Canal (drawbridge),9414785,37.82,-121.447,Subordinate
+California,    Sacramento River,,        Collinsville,9415176,38.0733,-121.848,Subordinate
+California,    Sacramento River,,        Threemile Slough,9415236,38.1067,-121.7,Subordinate
+California,    Sacramento River,,        Rio Vista,9415316,38.145,-121.692,Harmonic
+California,    Sacramento River,,"        Steamboat Slough, Snug Harbor Marina",9415414,38.1833,-121.655,Subordinate
+California,    Sacramento River,,        Snodgrass Slough,9415565,38.2767,-121.495,Subordinate
+California,    Sacramento River,,        Clarksburg,9415846,38.4167,-121.523,Subordinate
+California,    Sacramento River,,        Sacramento,9416174,38.58,-121.507,Subordinate
+California,    San Pablo Bay,,        Point San Pedro,9415009,37.9933,-122.447,Subordinate
+California,    San Pablo Bay,,        Pinole Point,9415056,38.015,-122.363,Harmonic
+California,    San Pablo Bay,,"        Hercules, Refugio Landing",9415074,38.0233,-122.292,Subordinate
+California,    San Pablo Bay,,        Petaluma River entrance,9415252,38.1153,-122.5057,Subordinate
+California,    San Pablo Bay,,"        Lakeville, Petaluma River",TWC0649,38.2,-122.5667,Subordinate
+California,    San Pablo Bay,,"        Upper drawbridge, Petaluma River",9415584,38.2283,-122.613,Subordinate
+California,    San Pablo Bay,,"        Gallinas, Gallinas Creek",9415052,38.015,-122.503,Subordinate
+California,    San Pablo Bay,,"        Hog Island, San Antonio Creek",9415344,38.1617,-122.55,Subordinate
+California,    San Pablo Bay,,        Sonoma Creek,9415338,38.1567,-122.407,Harmonic
+California,    San Pablo Bay,,"        Wingo, Sonoma Creek",9415447,38.21,-122.427,Subordinate
+California,"    Outer Coast, San Francisco",,        Bolinas Lagoon,9414958,37.908,-122.6785,Harmonic
+California,"    Outer Coast, San Francisco",,        Point Reyes,9415020,37.9961,-122.9767,Harmonic
+California,"    Outer Coast, San Francisco",,        Tomales Bay entrance,9415469,38.2283,-122.977,Subordinate
+California,"    Outer Coast, San Francisco",,"        Blakes Landing, Tomales Bay",9415396,38.19,-122.917,Subordinate
+California,"    Outer Coast, San Francisco",,"        Marshall, Tomales Bay",9415339,38.1617,-122.893,Subordinate
+California,"    Outer Coast, San Francisco",,"        Reynolds, Tomales Bay",9415320,38.1467,-122.883,Subordinate
+California,"    Outer Coast, San Francisco",,"        Inverness, Tomales Bay",9415228,38.1133,-122.868,Subordinate
+California,"    Outer Coast, San Francisco",,        Bodega Harbor entrance,9415625,38.3083,-123.055,Subordinate
+California,"    Outer Coast, San Francisco",,        Fort Ross,9416024,38.5133,-123.245,Subordinate
+California,"    Outer Coast, San Francisco",,        Green Cove,9416409,38.7043,-123.4494,Harmonic
+California,"    Outer Coast, San Francisco",,        ARENA COVE,9416841,38.9146,-123.7111,Harmonic
+California,"    Outer Coast, San Francisco",,        Point Arena,TWC0771,38.95,-123.7333,Subordinate
+California,"    Outer Coast, San Francisco",,        NOYO HARBOR,9417426,39.4258,-123.8051,Harmonic
+California,"    Outer Coast, San Francisco",,"        Mendocino, Mendocino Bay",TWC0777,39.3,-123.8,Subordinate
+California,"    Outer Coast, San Francisco",,        Westport,9417624,39.6333,-123.783,Subordinate
+California,"    Outer Coast, San Francisco",,        Shelter Cove,9418024,40.025,-124.058,Harmonic
+California,"    Outer Coast, San Francisco",,"        Cockrobin Island Bridge, Eel River",9418637,40.6372,-124.2822,Harmonic
+California,"    Outer Coast, San Francisco",        Humboldt Bay,            HUMBOLDT BAY (North Spit),9418767,40.7663,-124.2172,Harmonic
+California,"    Outer Coast, San Francisco",        Humboldt Bay,            Fields Landing,9418723,40.7233,-124.222,Harmonic
+California,"    Outer Coast, San Francisco",        Humboldt Bay,            Hookton Slough,9418686,40.6867,-124.222,Subordinate
+California,"    Outer Coast, San Francisco",        Humboldt Bay,            Elk River Railroad Bridge,9418757,40.7567,-124.193,Subordinate
+California,"    Outer Coast, San Francisco",        Humboldt Bay,            Bucksport,9418778,40.7783,-124.197,Subordinate
+California,"    Outer Coast, San Francisco",        Humboldt Bay,            Eureka,9418801,40.8067,-124.167,Subordinate
+California,"    Outer Coast, San Francisco",        Humboldt Bay,            Eureka Slough Bridge,9418802,40.8067,-124.142,Subordinate
+California,"    Outer Coast, San Francisco",        Humboldt Bay,            Samoa,9418817,40.8267,-124.18,Harmonic
+California,"    Outer Coast, San Francisco",        Humboldt Bay,            Arcata Wharf,9418851,40.85,-124.117,Subordinate
+California,"    Outer Coast, San Francisco",        Humboldt Bay,"            Mad River Slough, Arcata Bay",9418865,40.865,-124.148,Subordinate
+California,"    Outer Coast, San Francisco",,        Trinidad Harbor,9419059,41.0567,-124.147,Subordinate
+California,"    Outer Coast, San Francisco",,        CRESCENT CITY,9419750,41.745,-124.183,Harmonic
+California,"    Outer Coast, San Francisco",,"        Pyramid Point, Smith River",9419945,41.9453,-124.2009,Harmonic

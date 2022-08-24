@@ -1,0 +1,70 @@
+﻿state,group,subgroup,Name,Id,Lat,Lon,Predictions
+Oregon,South Coast,,"    Brookings, Chetco Cove",9430104,42.0433,-124.285,Subordinate
+Oregon,South Coast,,"    Gold Beach, Rogue River",9431011,42.4216,-124.4187,Harmonic
+Oregon,South Coast,,"    Wedderburn, Rogue River",TWC0817,42.4333,-124.4167,Subordinate
+Oregon,South Coast,,    Port Orford,9431647,42.739,-124.4983,Harmonic
+Oregon,South Coast,,"    Bandon, Coquille River",9432373,43.12,-124.413,Subordinate
+Oregon,South Coast,,"    Rink Creek Entrance, Coquille River",9432436,43.1579,-124.1818,Harmonic
+Oregon,South Coast,    Coos Bay,        CHARLESTON,9432780,43.345,-124.322,Harmonic
+Oregon,South Coast,    Coos Bay,"        Sitka Dock, Coos Bay",9432879,43.3767,-124.297,Subordinate
+Oregon,South Coast,    Coos Bay,        Coos Bay,9432845,43.38,-124.215,Subordinate
+Oregon,South Coast,    Coos Bay,        Empire,9432864,43.3917,-124.28,Subordinate
+Oregon,South Coast,    Umpqua River,"        Umpqua River Entrance, Half Moon Bay",9433445,43.675,-124.192,Harmonic
+Oregon,South Coast,    Umpqua River,        Reedsport,9433501,43.7083,-124.098,Harmonic
+Oregon,South Coast,    Umpqua River,        Gardiner,TWC0831,43.7333,-124.1167,Subordinate
+Oregon,Central Coast,    Siuslaw River,"        Florence, Siuslaw River",9434032,43.9667,-124.103,Subordinate
+Oregon,Central Coast,    Siuslaw River,"        Cushman, Siuslaw River",9434068,43.985,-124.045,Harmonic
+Oregon,Central Coast,    Siuslaw River,"        Florence USCG Pier, Siuslaw River",9434098,44.0021,-124.123,Harmonic
+Oregon,Central Coast,    Siuslaw River,        Siuslaw River Entrance,9434132,44.0167,-124.13,Subordinate
+Oregon,Central Coast,,"    Drift Creek, Alsea River",9434938,44.4133,-123.99,Subordinate
+Oregon,Central Coast,,"    Waldport, Alsea Bay",9434939,44.4344,-124.0581,Harmonic
+Oregon,Central Coast,    Yaquina Bay and River,"        Weiser Point, Yaquina River",9435308,44.5933,-124.008,Harmonic
+Oregon,Central Coast,    Yaquina Bay and River,        TOLEDO,9435362,44.6167,-123.937,Subordinate
+Oregon,Central Coast,    Yaquina Bay and River,        Southbeach,9435380,44.625,-124.043,Harmonic
+Oregon,Central Coast,    Yaquina Bay and River,"        YAQUINA USCG STA, NEWPORT",9435385,44.6267,-124.055,Subordinate
+Oregon,Central Coast,,    Depoe Bay,9435827,44.81,-124.058,Harmonic
+Oregon,Central Coast,,"    Chinook Bend, Siletz River",9435992,44.88,-123.9636,Harmonic
+Oregon,Central Coast,,"    Kernville, Siletz River",9436031,44.8967,-124,Subordinate
+Oregon,Central Coast,,"    Taft, Siletz Bay",9436101,44.9267,-124.013,Subordinate
+Oregon,Central Coast,,"    Cascade Head, Salmon River",9436381,45.0479,-124.0073,Harmonic
+Oregon,North Coast,,    Nestucca Bay entrance,TWC0857,45.1667,-123.9667,Subordinate
+Oregon,North Coast,,"    Netarts, Netarts Bay",9437262,45.43,-123.945,Subordinate
+Oregon,North Coast,    Tillamook Bay,"        Tillamook, Hoquarten Slough",9437331,45.46,-123.845,Subordinate
+Oregon,North Coast,    Tillamook Bay,        Dick Point,9437381,45.4817,-123.902,Harmonic
+Oregon,    Columbia River,,        Portland Morrison Street Bridge,9439221,45.51,-122.673,Harmonic
+Oregon,North Coast,    Tillamook Bay,        Bay City,TWC0865,45.5167,-123.9,Subordinate
+Oregon,North Coast,    Tillamook Bay,        Miami Cove,TWC0863,45.55,-123.9,Subordinate
+Oregon,North Coast,    Tillamook Bay,        Garibaldi,9437540,45.5545,-123.9189,Harmonic
+Oregon,North Coast,    Tillamook Bay,        Barview,9437581,45.5683,-123.943,Subordinate
+Oregon,North Coast,    Tillamook Bay,"        North Jetty, Tillamook Bay",9437585,45.57,-123.965,Harmonic
+Oregon,    Columbia River,,        Washougal,9440047,45.5783,-122.382,Harmonic
+Oregon,    Columbia River,,        Beacon Rock State Park,9440079,45.6203,-122.0203,Harmonic
+Oregon,    Columbia River,,        Vancouver,9440083,45.6317,-122.697,Harmonic
+Oregon,North Coast,    Nehalem River,        Brighton,9437815,45.67,-123.925,Subordinate
+Oregon,    Columbia River,,        Rocky Point,9439189,45.6967,-122.868,Harmonic
+Oregon,North Coast,    Nehalem River,        Nehalem,9437908,45.71,-123.89,Subordinate
+Oregon,North Coast,    Nehalem River,"        North Fork, Nehalem River",9437954,45.7338,-123.8764,Harmonic
+Oregon,    Columbia River,,"        Knapp Landing, Willow Bar",9440171,45.7417,-122.755,Harmonic
+Oregon,    Columbia River,,        Saint Helens,9439201,45.865,-122.797,Harmonic
+Oregon,    Columbia River,,        Temco Kalama Terminal,9440357,45.9867,-122.8367,Harmonic
+Oregon,    Columbia River,,        Longview,9440422,46.1061,-122.9542,Harmonic
+Oregon,    Columbia River,,"        Cathcart Landing, Youngs River",9438772,46.1243,-123.8043,Harmonic
+Oregon,    Columbia River,,        Cape Horn,9440482,46.1517,-123.29,Harmonic
+Oregon,    Columbia River,,        Barlow Point,9440483,46.1522,-123.0392,Harmonic
+Oregon,    Columbia River,,        Wauna,9439099,46.16,-123.405,Harmonic
+Oregon,    Columbia River,,"        Warrenton, Skipanon River, Oreg.",TWC0883,46.1667,-123.9167,Subordinate
+Oregon,    Columbia River,,"        Astoria (Youngs Bay), Oreg.",9439026,46.1717,-123.842,Subordinate
+Oregon,    Columbia River,,"        Settlers Point, Oreg.",9439054,46.175,-123.678,Subordinate
+Oregon,    Columbia River,,"        Astoria (Port Docks), Oreg.",9439023,46.1867,-123.86,Subordinate
+Oregon,    Columbia River,,"        Knappa, Knappa Slough",9439069,46.1867,-123.588,Subordinate
+Oregon,    Columbia River,,"        Point Adams, Oreg.",TWC0881,46.2,-123.95,Subordinate
+Oregon,    Columbia River,,"        Hammond, Oregon",9439011,46.2017,-123.945,Harmonic
+Oregon,    Columbia River,,"        ASTORIA (Tongue Point), Oreg.",9439040,46.2073,-123.7683,Harmonic
+Oregon,    Columbia River,,"        Hungry Harbor, Wash.",9440563,46.2583,-123.848,Subordinate
+Oregon,    Columbia River,,"        Harrington Point, Wash.",TWC0895,46.2667,-123.65,Subordinate
+Oregon,    Columbia River,,        Skamokawa,9440569,46.2667,-123.452,Harmonic
+Oregon,    Columbia River,,"        Fort Canby, Jetty 'A', Wash.",9440572,46.2683,-124.037,Subordinate
+Oregon,    Columbia River,,"        Chinook, Baker Bay, Wash.",9440573,46.2717,-123.948,Subordinate
+Oregon,    Columbia River,,        Columbia River entrance (N. Jetty),9440574,46.2733,-124.072,Subordinate
+Oregon,    Columbia River,,        Cape Disappointment,9440581,46.281,-124.0463,Harmonic
+Oregon,    Columbia River,,"        Ilwaco, Baker Bay, Wash.",9440597,46.3033,-124.04,Subordinate

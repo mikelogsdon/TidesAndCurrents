@@ -1,0 +1,189 @@
+﻿state,group,subgroup,name,Id,Lat,Lon,Predictions
+Washington,    Columbia River,,        Columbia River entrance (N. Jetty),9440574,46.2733,-124.072,Subordinate
+Washington,    Columbia River,,        Cape Disappointment,9440581,46.281,-124.0463,Harmonic
+Washington,    Columbia River,,"        Fort Canby, Jetty 'A', Wash.",9440572,46.2683,-124.037,Subordinate
+Washington,    Columbia River,,"        Ilwaco, Baker Bay, Wash.",9440597,46.3033,-124.04,Subordinate
+Washington,    Columbia River,,"        Chinook, Baker Bay, Wash.",9440573,46.2717,-123.948,Subordinate
+Washington,    Columbia River,,"        Hungry Harbor, Wash.",9440563,46.2583,-123.848,Subordinate
+Washington,    Columbia River,,"        Hammond, Oregon",9439011,46.2017,-123.945,Harmonic
+Washington,    Columbia River,,"        Point Adams, Oreg.",TWC0881,46.2,-123.95,Subordinate
+Washington,    Columbia River,,"        Astoria (Youngs Bay), Oreg.",9439026,46.1717,-123.842,Subordinate
+Washington,    Columbia River,,"        Cathcart Landing, Youngs River",9438772,46.1243,-123.8043,Harmonic
+Washington,    Columbia River,,"        Warrenton, Skipanon River, Oreg.",TWC0883,46.1667,-123.9167,Subordinate
+Washington,    Columbia River,,"        Astoria (Port Docks), Oreg.",9439023,46.1867,-123.86,Subordinate
+Washington,    Columbia River,,"        ASTORIA (Tongue Point), Oreg.",9439040,46.2073,-123.7683,Harmonic
+Washington,    Columbia River,,"        Knappa, Knappa Slough",9439069,46.1867,-123.588,Subordinate
+Washington,    Columbia River,,"        Settlers Point, Oreg.",9439054,46.175,-123.678,Subordinate
+Washington,    Columbia River,,"        Harrington Point, Wash.",TWC0895,46.2667,-123.65,Subordinate
+Washington,    Columbia River,,        Skamokawa,9440569,46.2667,-123.452,Harmonic
+Washington,    Columbia River,,        Wauna,9439099,46.16,-123.405,Harmonic
+Washington,    Columbia River,,        Cape Horn,9440482,46.1517,-123.29,Harmonic
+Washington,    Columbia River,,        Barlow Point,9440483,46.1522,-123.0392,Harmonic
+Washington,    Columbia River,,        Longview,9440422,46.1061,-122.9542,Harmonic
+Washington,    Columbia River,,        Temco Kalama Terminal,9440357,45.9867,-122.8367,Harmonic
+Washington,    Columbia River,,        Saint Helens,9439201,45.865,-122.797,Harmonic
+Washington,    Columbia River,,"        Knapp Landing, Willow Bar",9440171,45.7417,-122.755,Harmonic
+Washington,    Columbia River,,        Rocky Point,9439189,45.6967,-122.868,Harmonic
+Washington,    Columbia River,,        Portland Morrison Street Bridge,9439221,45.51,-122.673,Harmonic
+Washington,    Columbia River,,        Vancouver,9440083,45.6317,-122.697,Harmonic
+Washington,    Columbia River,,        Washougal,9440047,45.5783,-122.382,Harmonic
+Washington,    Columbia River,,        Beacon Rock State Park,9440079,45.6203,-122.0203,Harmonic
+Washington,    Willapa Bay,,        Nahcotta,9440747,46.5017,-124.023,Subordinate
+Washington,    Willapa Bay,,        Tarlatt Slough,TWC0933,46.37,-124.005,Subordinate
+Washington,    Willapa Bay,,        Greenhead Slough,9440650,46.3722,-123.9503,Harmonic
+Washington,    Willapa Bay,,"        Paradise Point, Long Island",9440723,46.4683,-123.945,Subordinate
+Washington,    Willapa Bay,,"        Naselle River, swing bridge",9440691,46.43,-123.903,Subordinate
+Washington,    Willapa Bay,,"        Naselle River, 4 miles above swing bridge",9440662,46.3883,-123.84,Subordinate
+Washington,    Willapa Bay,,"        Bay Center, Palix River",9440846,46.6233,-123.945,Subordinate
+Washington,    Willapa Bay,,"        Palix River, south fork",9440813,46.5867,-123.91,Subordinate
+Washington,    Willapa Bay,,        TOKE POINT,9440910,46.7075,-123.9669,Harmonic
+Washington,    Willapa Bay,,"        Mailboat Slough, Willapa River",TWC0940,46.6883,-123.8167,Subordinate
+Washington,    Willapa Bay,,"        South Bend, Willapa River",9440875,46.6633,-123.798,Harmonic
+Washington,    Willapa Bay,,"        Raymond, Willapa River",9440886,46.6833,-123.755,Subordinate
+Washington,    Grays Harbor,,"        Westport, Point Chehalis",9441102,46.9043,-124.1051,Harmonic
+Washington,    Grays Harbor,,        Point Brown,9441156,46.95,-124.128,Subordinate
+Washington,    Grays Harbor,,"        Bay City, South Bay",9441038,46.8617,-124.06,Subordinate
+Washington,    Grays Harbor,,        Markham,9441098,46.9067,-123.998,Subordinate
+Washington,    Grays Harbor,,        ABERDEEN,9441187,46.9683,-123.853,Harmonic
+Washington,    Grays Harbor,,"        Cosmopolis, Chehalis River",9441158,46.9667,-123.778,Subordinate
+Washington,    Grays Harbor,,"        Montesano, Chehalis River",TWC0959,46.9683,-123.6,Subordinate
+Washington,Olympic Peninsula,,    Point Grenville,9441627,47.3033,-124.27,Subordinate
+Washington,Olympic Peninsula,,    Destruction Island,TWC0965,47.6667,-124.4833,Subordinate
+Washington,Olympic Peninsula,,    James Island,9442388,47.9067,-124.647,Subordinate
+Washington,Olympic Peninsula,,"    La Push, Quillayute River",9442396,47.9133,-124.6369,Harmonic
+Washington,Olympic Peninsula,,"    Tskawahyah Island, Cape Alava",9442705,48.1711,-124.7369,Harmonic
+Washington,Olympic Peninsula,,    Makah Bay,9442861,48.2967,-124.672,Subordinate
+Washington,    Strait of Juan de Fuca,,"        Tatoosh Island, Cape Flattery",9442971,48.3917,-124.737,Subordinate
+Washington,    Strait of Juan de Fuca,,        NEAH BAY,9443090,48.3703,-124.6019,Harmonic
+Washington,    Strait of Juan de Fuca,,"        Sekiu, Clallam Bay",9443361,48.2633,-124.297,Harmonic
+Washington,    Strait of Juan de Fuca,,        Jim Creek,9443551,48.1872,-124.0625,Harmonic
+Washington,    Strait of Juan de Fuca,,        Twin Rivers,9443644,48.175,-123.95,Subordinate
+Washington,    Strait of Juan de Fuca,,        Crescent Bay,9443826,48.1617,-123.725,Subordinate
+Washington,    Strait of Juan de Fuca,,        Port Angeles,9444090,48.125,-123.44,Harmonic
+Washington,    Strait of Juan de Fuca,,"        Ediz Hook, Port Angeles",9444122,48.14,-123.413,Subordinate
+Washington,    Strait of Juan de Fuca,,        Dungeness,9444471,48.1667,-123.117,Subordinate
+Washington,    Strait of Juan de Fuca,,        Sequim Bay entrance,9444555,48.0817,-123.043,Subordinate
+Washington,    Strait of Juan de Fuca,,"        Gardiner, Discovery Bay",9444705,48.0583,-122.917,Subordinate
+Washington,    Strait of Juan de Fuca,,        Smith Island,9447985,48.3167,-122.837,Subordinate
+Washington,    Strait of Juan de Fuca,,"        Point Partridge, Whidbey Island",9447934,48.2317,-122.765,Subordinate
+Washington,    Strait of Juan de Fuca,,"        Sunset Beach, Whidbey Island",9447951,48.2833,-122.728,Subordinate
+Washington,    Strait of Juan de Fuca,,        NAS Whidbey Island,9447973,48.3428,-122.6858,Harmonic
+Washington,    Admiralty Inlet,,        Admiralty Head,9447905,48.1583,-122.668,Subordinate
+Washington,    Admiralty Inlet,,        PORT TOWNSEND,9444900,48.1129,-122.7595,Harmonic
+Washington,    Admiralty Inlet,,        Marrowstone Point,9444972,48.0917,-122.69,Subordinate
+Washington,    Admiralty Inlet,,"        Mystery Bay, Marrowstone Island",9444971,48.0583,-122.692,Subordinate
+Washington,    Admiralty Inlet,,"        Bush Point, Whidbey Island",9447854,48.0333,-122.607,Subordinate
+Washington,    Hood Canal,,        Port Ludlow,9445017,47.925,-122.68,Subordinate
+Washington,    Hood Canal,,        Foulweather Bluff,9445016,47.9267,-122.617,Harmonic
+Washington,    Hood Canal,,        Port Gamble,9445059,47.8583,-122.58,Subordinate
+Washington,    Hood Canal,,        Lofall,9445088,47.815,-122.657,Subordinate
+Washington,    Hood Canal,,        Bangor Wharf,9445133,47.7483,-122.727,Harmonic
+Washington,    Hood Canal,,"        Zelatched Point, Dabob Bay",9445269,47.7117,-122.822,Subordinate
+Washington,    Hood Canal,,"        Whitney Point, Dabob Bay",9445246,47.7617,-122.85,Subordinate
+Washington,    Hood Canal,,"        Quilcene, Quilcene Bay, Dabob Bay",9445272,47.8,-122.858,Subordinate
+Washington,    Hood Canal,,"        Seabeck, Seabeck Bay",9445303,47.6417,-122.828,Subordinate
+Washington,    Hood Canal,,        Pleasant Harbor,9445293,47.665,-122.912,Subordinate
+Washington,    Hood Canal,,        Triton Head,9445326,47.6033,-122.982,Subordinate
+Washington,    Hood Canal,,        Ayock Point,9445388,47.5083,-123.052,Subordinate
+Washington,    Hood Canal,,        Union,9445478,47.3583,-123.098,Harmonic
+Washington,    Hood Canal,,        Lynch Cove Dock,9445441,47.4183,-122.9,Subordinate
+Washington,    Puget Sound,,        Hansville,9445526,47.9183,-122.545,Subordinate
+Washington,    Puget Sound,,        Edmonds,9447427,47.8133,-122.383,Subordinate
+Washington,    Puget Sound,,"        Kingston, Appletree Cove",9445639,47.7967,-122.493,Subordinate
+Washington,    Puget Sound,,        Port Jefferson,9445683,47.7467,-122.477,Subordinate
+Washington,    Puget Sound,,        Port Madison,9445753,47.705,-122.525,Subordinate
+Washington,    Puget Sound,,"        Meadow Point, Shilshole Bay",9447265,47.6883,-122.403,Subordinate
+Washington,    Puget Sound,,"        Poulsbo, Liberty Bay",9445719,47.725,-122.638,Subordinate
+Washington,    Puget Sound,,"        Brownsville, Port Orchard",9445832,47.6517,-122.615,Subordinate
+Washington,    Puget Sound,,"        SEATTLE (Madison St.), Elliott Bay",9447130,47.6026,-122.3393,Harmonic
+Washington,    Puget Sound,,"        Lockheed Shipyard, Harbor Island",9447110,47.585,-122.362,Subordinate
+Washington,    Puget Sound,,"        Duwamish Waterway, Eighth Ave. South",9447029,47.535,-122.322,Subordinate
+Washington,    Puget Sound,,"        Eagle Harbor, Bainbridge Island",9445882,47.62,-122.515,Subordinate
+Washington,    Puget Sound,,        Port Blakely,9445913,47.5967,-122.51,Subordinate
+Washington,    Puget Sound,,"        Clam Bay, Rich Passage",9445938,47.5733,-122.543,Subordinate
+Washington,    Puget Sound,,"        Bremerton, Sinclair Inlet, Port Orchard",9445958,47.5617,-122.623,Harmonic
+Washington,    Puget Sound,,"        Tracyton, Dyes Inlet",9445901,47.61,-122.66,Subordinate
+Washington,    Puget Sound,,"        Harper, Yukon Harbor",9445993,47.5233,-122.517,Subordinate
+Washington,    Puget Sound,,"        Point Vashon, Vashon Island",9446025,47.5117,-122.463,Subordinate
+Washington,    Puget Sound,,"        Des Moines, East Passage",9446248,47.4,-122.328,Subordinate
+Washington,    Puget Sound,,"        Burton, Quartermaster Hbr. (inside), Vashon I.",9446254,47.395,-122.463,Subordinate
+Washington,    Puget Sound,,"        Tahlequah, Neil Pt., Dalco Passage, Vashon I.",9446375,47.3333,-122.507,Subordinate
+Washington,    Puget Sound,,        Gig Harbor,9446369,47.34,-122.588,Subordinate
+Washington,    Puget Sound,,"        Tacoma, Commencement Bay, Sitcum Waterway",9446484,47.2667,-122.4133,Harmonic
+Washington,    Puget Sound,,        Tacoma Narrows Bridge,9446486,47.2717,-122.552,Subordinate
+Washington,    Puget Sound,,"        Arletta, Hale Passage",9446491,47.28,-122.652,Subordinate
+Washington,    Puget Sound,,"        Horsehead Bay, Carr Inlet",9446451,47.3017,-122.682,Subordinate
+Washington,    Puget Sound,,"        Wauna, Carr Inlet",9446291,47.3783,-122.634,Harmonic
+Washington,    Puget Sound,,"        Home, Von Geldern Cove, Carr Inlet",9446500,47.275,-122.758,Subordinate
+Washington,    Puget Sound,,"        Steilacoom, Cormorant Passage",9446714,47.1733,-122.603,Subordinate
+Washington,    Puget Sound,,"        Yoman Point, Anderson Island, Balch Passage",9446705,47.18,-122.675,Harmonic
+Washington,    Puget Sound,,"        SANDY POINT ANDERSON ISLAND, PUGET SOUND",9446804,47.153,-122.6751,Harmonic
+Washington,    Puget Sound,,"        Dupont Wharf, Nisqually Reach",9446828,47.1183,-122.665,Subordinate
+Washington,    Puget Sound,,"        Longbranch, Filucy Bay",9446638,47.21,-122.753,Subordinate
+Washington,    Puget Sound,,"        Devils Head, Drayton Passage",9446671,47.1667,-122.763,Subordinate
+Washington,    Puget Sound,,        Henderson Inlet,9446752,47.155,-122.838,Subordinate
+Washington,    Puget Sound,,"        McMicken Island, Case Inlet",9446583,47.2467,-122.862,Subordinate
+Washington,    Puget Sound,,"        Vaughn, Case Inlet",9446366,47.3417,-122.775,Subordinate
+Washington,    Puget Sound,,"        Allyn, Case Inlet",9446281,47.3833,-122.823,Subordinate
+Washington,    Puget Sound,,"        Walkers Landing, Pickering Passage",9446489,47.2817,-122.923,Subordinate
+Washington,    Puget Sound,,"        Shelton, Oakland Bay",9446628,47.215,-123.083,Subordinate
+Washington,    Puget Sound,,"        Arcadia, Totten Inlet",9446666,47.1967,-122.938,Subordinate
+Washington,    Puget Sound,,"        Barron Point, Little Snookum Inlet Entrance",9446742,47.1567,-123.008,Subordinate
+Washington,    Puget Sound,,"        Rocky Point, Eld Inlet",TWC1115,47.0817,-123.005,Subordinate
+Washington,    Puget Sound,,"        Dofflemeyer Point, Boston Hbr., Budd Inlet",9446800,47.1417,-122.903,Subordinate
+Washington,    Puget Sound,,"        Budd Inlet, Olympia Shoal",9446807,47.0983,-122.895,Harmonic
+Washington,    Puget Sound,,"        Olympia, Budd Inlet",9446969,47.06,-122.903,Subordinate
+Washington,    Possession Sound and Port Susan,,"        Glendale, Whidbey Island",9447814,47.94,-122.357,Subordinate
+Washington,    Possession Sound and Port Susan,,        Everett,9447659,47.98,-122.223,Harmonic
+Washington,    Possession Sound and Port Susan,,"        Marysville, Quilceda Creek",TWC1125,48.045,-122.2117,Subordinate
+Washington,    Possession Sound and Port Susan,,        Priest Point,9447717,48.0349,-122.2272,Harmonic
+Washington,    Possession Sound and Port Susan,,        Tulalip,9447773,48.065,-122.288,Harmonic
+Washington,    Possession Sound and Port Susan,,        Spee-Bi-Dah,9448009,48.0883,-122.3223,Harmonic
+Washington,    Possession Sound and Port Susan,,"        Tulare Beach, Port Susan",9448043,48.1068,-122.3473,Harmonic
+Washington,    Possession Sound and Port Susan,,        Kayak Point,9448094,48.1367,-122.367,Subordinate
+Washington,    Possession Sound and Port Susan,,"        Stanwood, Stillaguamish River",TWC1131,48.2167,-122.3667,Subordinate
+Washington,    Saratoga Passage and Skagit Bay,,"        Sandy Point, Whidbey Island",9447856,48.035,-122.377,Subordinate
+Washington,    Saratoga Passage and Skagit Bay,,"        Holly Farms Harbor, Holmes Harbor, Whidbey I.",9447855,48.0267,-122.535,Subordinate
+Washington,    Saratoga Passage and Skagit Bay,,"        Greenbank, Whidbey Island",9447883,48.105,-122.57,Harmonic
+Washington,    Saratoga Passage and Skagit Bay,,"        Crescent Harbor, N. Whidbey Island",9447952,48.2867,-122.617,Subordinate
+Washington,    Saratoga Passage and Skagit Bay,,"        Coupeville, Penn Cove, Whidbey Island",9447929,48.2233,-122.69,Subordinate
+Washington,    Saratoga Passage and Skagit Bay,,"        La Conner, Swinomish Channel",9448558,48.3917,-122.497,Subordinate
+Washington,    Saratoga Passage and Skagit Bay,,        Sneeoosh Point,9448576,48.4,-122.548,Harmonic
+Washington,    Saratoga Passage and Skagit Bay,,"        Turner Bay, Similk Bay",9448657,48.445,-122.555,Harmonic
+Washington,    Saratoga Passage and Skagit Bay,,"        Ala Spit, Whidbey Island",9447993,48.3967,-122.587,Subordinate
+Washington,    Saratoga Passage and Skagit Bay,,"        Yokeko Point, Deception Pass",9448601,48.4133,-122.615,Subordinate
+Washington,    Saratoga Passage and Skagit Bay,,"        Cornet Bay, Deception Pass",9447995,48.4017,-122.623,Subordinate
+Washington,"    Rosario Strait, etc.",,"        Deception Pass St. Park, Bowman Bay, Fidalgo I.",9448614,48.415,-122.652,Harmonic
+Washington,"    Rosario Strait, etc.",,"        Aleck Bay, Lopez Island",9449994,48.425,-122.853,Subordinate
+Washington,"    Rosario Strait, etc.",,"        TELEGRAPH BAY, PUGET SOUND",9449988,48.4433,-122.805,Harmonic
+Washington,"    Rosario Strait, etc.",,        Burrows Bay (Allan Island),9448683,48.46,-122.695,Subordinate
+Washington,"    Rosario Strait, etc.",,"        Ship Harbor, Fidalgo Island",9448772,48.5067,-122.677,Subordinate
+Washington,"    Rosario Strait, etc.",,"        Anacortes, Guemes Channel",9448794,48.5183,-122.62,Subordinate
+Washington,"    Rosario Strait, etc.",,"        Swinomish Channel ent., Padilla Bay",9448682,48.4583,-122.513,Harmonic
+Washington,"    Rosario Strait, etc.",,"        Armitage Island, Thatcher Pass",9449932,48.535,-122.797,Harmonic
+Washington,"    Rosario Strait, etc.",,"        Strawberry Bay, Cypress Island",9448876,48.565,-122.722,Subordinate
+Washington,"    Rosario Strait, etc.",,        Peavine Pass,TWC1165,48.6,-122.8,Subordinate
+Washington,"    Rosario Strait, etc.",,"        Tide Point, Cypress Island",9448918,48.5867,-122.748,Subordinate
+Washington,"    Rosario Strait, etc.",,        Hale Passage,,,,
+Washington,"    Rosario Strait, etc.",        Hale Passage,            Gooseberry Point,9449184,48.73,-122.67,Subordinate
+Washington,"    Rosario Strait, etc.",        Hale Passage,            Point Migley,TWC1173,48.75,-122.7167,Subordinate
+Washington,"    Rosario Strait, etc.",        Bellingham Bay,            Chuckanut Bay,TWC1169,48.6667,-122.5,Subordinate
+Washington,"    Rosario Strait, etc.",        Bellingham Bay,            Bellingham,9449211,48.745,-122.495,Subordinate
+Washington,"    Rosario Strait, etc.",,"        Village Point, Lummi Island",9449161,48.7167,-122.708,Harmonic
+Washington,"    Rosario Strait, etc.",,"        Sandy Point, Lummi Bay",9449292,48.79,-122.708,Subordinate
+Washington,"    Rosario Strait, etc.",,"        Rosario, East Sound, Orcas Island",9449771,48.6467,-122.87,Harmonic
+Washington,"    Rosario Strait, etc.",,"        Upright Head, Lopez Island",9449911,48.5717,-122.885,Harmonic
+Washington,"    Rosario Strait, etc.",,"        Orcas, Orcas Island",9449798,48.6,-122.95,Subordinate
+Washington,"    Rosario Strait, etc.",        San Juan Channel,"            Richardson, Lopez Island",9449982,48.4467,-122.9,Harmonic
+Washington,"    Rosario Strait, etc.",        San Juan Channel,"            Shaw Island, Ferry Terminal, Harney Channel",9449904,48.585,-122.928,Subordinate
+Washington,"    Rosario Strait, etc.",        San Juan Channel,"            Friday Harbor, San Juan Island",9449880,48.5467,-123.01,Harmonic
+Washington,"    Rosario Strait, etc.",        Strait of Georgia,"            Echo Bay, Sucia Islands",9449712,48.7567,-122.897,Subordinate
+Washington,"    Rosario Strait, etc.",        Strait of Georgia,            Ferndale,TWC1189,48.8333,-122.7167,Subordinate
+Washington,"    Rosario Strait, etc.",        Strait of Georgia,            CHERRY POINT,9449424,48.8633,-122.758,Harmonic
+Washington,"    Rosario Strait, etc.",        Strait of Georgia,"            Blaine, Semiahmoo Bay",9449679,48.9917,-122.765,Harmonic
+Washington,"    Rosario Strait, etc.",        Strait of Georgia,"            POINT ROBERTS, PUGET SOUND",9449639,48.975,-123.083,Harmonic
+Washington,"    Rosario Strait, etc.",        Haro Strait,"            Kanaka Bay, San Juan Island",9449856,48.485,-123.083,Harmonic
+Washington,"    Rosario Strait, etc.",        Haro Strait,"            Hanbury Point, Mosquito Pass, San Juan I.",9449828,48.5817,-123.17,Harmonic
+Washington,"    Rosario Strait, etc.",        Haro Strait,"            Roche Harbor, San Juan Island",9449834,48.61,-123.155,Subordinate
+Washington,"    Rosario Strait, etc.",        Haro Strait,"            WALDRON ISLAND, PUGET SOUND",9449746,48.6868,-123.0376,Harmonic
+Washington,"    Rosario Strait, etc.",        Boundary Pass,            Patos Island Wharf,9449704,48.7867,-122.97,Subordinate
