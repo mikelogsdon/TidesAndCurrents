@@ -3,11 +3,15 @@ library(sp)
 library(leaflet)
 library(plyr)
 library(dplyr)
+library(RSQLite)
 
 
 load("stations.rda")
 # load("tideData.rda")
-load("tideDataSmall.rda")
+# load("tideDataSmall.rda")
+source("noaa_api.R")
+
+
 
 findStations <- function(state, region, station) {
   if(station != "") {
@@ -31,7 +35,7 @@ nearestStation <- function(click) {
 returnBounds <- function(sx) {
   buf <- 20
   if(unique(sx$state) == "Alaska" & length(unique(sx$group)) > 1) {
-    buf <- 10000
+    buf <- 100000
   }
   # Create latitude interval for map
   latInterval <- c(min(sx$Lat), max(sx$Lat))
@@ -67,7 +71,7 @@ makeTideSummary2 <- function(tides, nyears, limit = 100) {
   tides[1:limit, c("Prediction", "Date.Time", "stationName", "group")]
 }
 
-# state <- "Alaska"; ids <- stations$Id[stations$group == "Cook Inlet"]; type = "L"; maxYear <- 2020
+state <- "Alaska"; ids <- stations$Id[stations$group == "Cook Inlet"]; type = "L"; maxYear <- 2020
 makeTideSummary3 <- function(state, ids, type, nyears) {
   tides <- getTides(state, Id = ids, type = type, limit = NULL, nyears = nyears)
   # print(dim(tides)); print(max(tides$Date.Time))
@@ -101,44 +105,19 @@ makeTideSummary3 <- function(state, ids, type, nyears) {
 }
 
 
-read.tides <- function(product, begin_date, end_date, station = "9447130", hiLow = FALSE) {
-  urlBase <- "https://tidesandcurrents.noaa.gov/api/datagetter"
-  options <- c(sprintf("product=%s", product),
-               sprintf("begin_date=%s", begin_date),
-               sprintf("end_date=%s", end_date),
-               sprintf("station=%s", station),
-               "application=web_services",
-               "format=csv",
-               "time_zone=lst_ldt",
-               "units=english",
-               "datum=MLLW")
-  if(hiLow) {
-    options <- c(options, "interval=hilo")
-  }
-  urlx <- paste(urlBase, paste(options, collapse = "&"), sep = "?")
-  print(urlx)
-  apiCall <- httr::GET(urlx)
-  dset <- read.csv(file = textConnection(httr::content(apiCall, "text")))
-  if(nrow(dset) %in% c(0, 1)) {
-    warning("No Data Found")
-    return(NULL)
-  }
-  dset$Date.Time <- lubridate::ymd_hm(dset$Date.Time)
-  if(hiLow) {
-    return(dset)
-  }
-  lubridate::minute(dset$Date.Time) <- 0
-  dset <- aggregate(. ~ Date.Time, FUN = mean, data = dset)
-  dset
+get_tide_by_id <- function(idx) {
+  conn <- dbConnect(SQLite(), dbname = "tide_preds.db")
+  tmp <- dbGetQuery(
+    conn,
+    sprintf(
+      "SELECT * FROM tide_preds WHERE Id IN ('%s')",
+      paste(idx, sep = "'", collapse = "','")
+    )
+  )
+  dbDisconnect(conn)
+  tmp$Date.Time <- as.POSIXct(tmp$Date.Time, origin = "1970-01-01")
+  return(tmp)
 }
-
-readOne <- function(stationId) {
-  tmp1 <- read.tides("predictions", "20180201", "20271231", station = stationId, hiLow = TRUE)
-  tmp2 <- read.tides("predictions", "20280101", "20361231", station = stationId, hiLow = TRUE)
-  rbind(tmp1, tmp2)
-}
-
-
 
 getTides <- function(state, Id = NULL, region = NULL, station = NULL, type = NULL, limit = NULL, nyears = NULL) {
   if(!is.null(Id)) {
@@ -153,14 +132,16 @@ getTides <- function(state, Id = NULL, region = NULL, station = NULL, type = NUL
     warning("Improper Specification to Read Tides")
     return(NULL)
   }
-  tmp <- tideDataSmall[tideDataSmall$Id %in% idx, ]
+  # tmp <- tideDataSmall[tideDataSmall$Id %in% idx, ]
+  tmp <- get_tide_by_id(idx)
+
   
   if(!is.null(nyears)) {
     maxYear <- lubridate::year(lubridate::today()) + nyears - 1
     tmp <- tmp[lubridate::year(tmp$Date.Time) <= maxYear, ]
   }
   
-  tmp <- merge(tmp, stations[, c("Id", "group", "subgroup", "state", "stationName")])
+  # tmp <- merge(tmp, stations[, c("Id", "group", "subgroup", "state", "stationName")])
   
   if(!is.null(type)) {
     tmp <- tmp[tmp$Type == type, ]
@@ -179,7 +160,19 @@ getTides <- function(state, Id = NULL, region = NULL, station = NULL, type = NUL
 }
 
 getStationData <- function(stationId) {
-  readOne(stationId)
+  conn <- dbConnect(SQLite(), dbname = "tide_preds.db")
+  tmp <- dbGetQuery(
+    conn,
+    sprintf(
+      "SELECT * FROM pattern_data WHERE Id = '%s'",
+      stationId
+    )
+  )
+  dbDisconnect(conn)
+  tmp$Date.Time <- as.POSIXct(tmp$Date.Time, origin = "1970-01-01")
+  return(tmp)
+  read_tides(stationId)
+  
 }
 
 plotStationMonthly <- function(test, stationName) {
@@ -187,7 +180,7 @@ plotStationMonthly <- function(test, stationName) {
     return(ggplot() + geom_blank())
   }
   # test <- getTides(Id = stationId)
-  # test <- readOne(stationId)
+  # test <- read_tides(stationId)
   
   test$hour <- lubridate::hour(test$Date.Time) + lubridate::minute(test$Date.Time) / 60
   test$month <- lubridate::month(test$Date.Time, label = TRUE, abbr = FALSE)
@@ -214,7 +207,7 @@ plotStationYearly <- function(test, stationName) {
   if(is.null(test)) {
     return(ggplot() + geom_blank())
   }
-  # test <- readOne(stationId)
+  # test <- read_tides(stationId)
   
   # test$hour <- lubridate::hour(test$Date.Time) + lubridate::minute(test$Date.Time) / 60
   # test$month <- lubridate::month(test$Date.Time, label = TRUE, abbr = FALSE)
@@ -264,7 +257,7 @@ makeNotes <- function() {
     "<h4>Alternate Title: It Was the Best of Tides, It Was the Worst of Tides</h5>",
     "<p>This tool uses the tidal predictions issued by the National Oceanic and Atmospheric Administration to facilitate exploration of interesting or unusual tides.",
     "You can learn more about NOAA tidal predictions <a href 'https://tidesandcurrents.noaa.gov/PageHelp.html'>here</a>.",
-    "Current support is for Alaska, Washington, and Oregon on the west coast of the United States. This tool stores the 25 most extreme tides by station and by year, and more detailed graphics are created by querying NOAA in real time.</p>",
+    "Current support is for Alaska, Washington, and Oregon on the west coast of the United States. This tool stores the 25 most extreme tides by station and by year, as well as a sample of all tidal predictions to make the tidal pattern graphics.</p>",
     "<p>The tool is meant to be useful for learning in general about tidal patterns, for example the extremes of Alaska's Cook Inlet versus the much milder tides of the Arctic Ocean versus the Bactrian Camel tides of Puget Sound.",
     "In addition, it is intended to be used for finding specific, interesting tides by location.",
     "For example, I live in the Puget Sound region of Washington, and I may be interested in the largest minus tide of the year at the nearest beach, or more broadly I might be interested in planning around the largest minus tide in the area in the next ten years.</p>",
@@ -273,6 +266,20 @@ makeNotes <- function() {
     # "<p>This idea was pitched and first explored by Ruth Hulbert, a bookseller and artist in Palmer, Alaska, and Cynthia Hansen, a lab tech in Bellingham, Washington.",
     "The tool was built by Mike Logsdon, a data analyst in Seattle, Washington. All three are considerable beach enthusiasts.</p>"
   )
+}
+
+
+
+writeComment <- function(name, email, comment) {
+  api_token = "xoxb-6921139457-XOh4FpYyTShXPHehGgdFkqIb"
+  
+  chatText <- sprintf("On %s, %s at %s says the following:\n%s", lubridate::now(), name, email, comment)
+  
+  httr::POST(url = "https://slack.com/api/chat.postMessage",
+             body = list(token = api_token, channel = "@mltheproducer",
+                         username = "fake_professor_sled",
+                         text = chatText,
+                         icon_url = "https://pbs.twimg.com/profile_images/573181116561014784/zwXSbgvh.jpeg"))
 }
 
 

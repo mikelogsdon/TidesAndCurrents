@@ -10,9 +10,9 @@ ui <- fluidPage(
    sidebarLayout(
       sidebarPanel(
          sliderInput("nyears", "Time Horizon (years)", min = 1,max = 18, value = 5),
-         selectInput("state", "State", choices = c("Alaska", "Washington", "Oregon"), selected = "Alaska"),
-         selectInput("region", "Region", choices = c("Select Region", sort(unique(stations$group[stations$state == "Alaska"]))), selected = ""),
-         selectInput("station", "Station", choices = c("Select Station", sort(unique(stations$stationName[stations$state == "Alaska"]))), selected = "Select Station")
+         selectInput("state", "State", choices = c("Alaska", "Washington", "Oregon", "California"), selected = "Oregon"),
+         selectInput("region", "Region", choices = c("Select Region", sort(unique(stations$group[stations$state == "Oregon"]))), selected = ""),
+         selectInput("station", "Station", choices = c("Select Station", sort(unique(stations$stationName[stations$state == "Oregon"]))), selected = "Select Station")
       ),
       mainPanel(
         tabsetPanel(
@@ -48,7 +48,7 @@ ui <- fluidPage(
           tabPanel(
             "Tidal Pattern",
             h4("This page creates graphics showing tidal patterns for a selected station. You'll have to press the button to rebuild the plot after changing stations."),
-            h5("The routine for this reads a bunch of data from the NOAA API in real time, so it takes a moment to build. As an example, build the plot for an Arctic Ocean site and then a Cook Inlet site and note the differences."),
+            h5("As an example, build the plot for an Arctic Ocean site, a Puget Sound site, and then a Cook Inlet site and note the differences."),
             radioButtons("patternToggle", "Plot Station Tidal Patterns", choices = c("Monthly", "Yearly"), selected = "Monthly", inline = TRUE),
             actionButton("makeStationPlot", label = "Make Station Plot"),
             conditionalPanel(
@@ -82,9 +82,9 @@ server <- function(input, output, session) {
   
   # Tee up the reactive values
   stationsAndTides <- reactiveValues()
-  stationsAndTides$selectedStations <- stations[stations$state == "Alaska", ]
-  stationsAndTides$lowTides <- getTides(state = "Alaska", type = "L")
-  stationsAndTides$highTides <- getTides(state = "Alaska", type = "H")
+  stationsAndTides$selectedStations <- stations[stations$state == "Oregon", ]
+  stationsAndTides$lowTides <- getTides(state = "Oregon", type = "L")
+  stationsAndTides$highTides <- getTides(state = "Oregon", type = "H")
   
   observeEvent(input$nyears, {
     stationsAndTides$lowTides <- getTides(input$state, Id = stationsAndTides$selectedStations$Id, type = "L", nyears = input$nyears)
@@ -167,11 +167,13 @@ server <- function(input, output, session) {
         leafletProxy("leafletMap", data = sx) %>%
           fitBounds(bx[[1]], bx[[2]], bx[[3]], bx[[4]]) %>%
           clearGroup("region") %>%
-          addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), popup = ~as.character(details), col = "red", group = "region", radius = ~aveTidalRange)
+          # addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), popup = ~as.character(details), col = "red", group = "region", radius = ~aveTidalRange)
+        addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), col = "red", group = "region", radius = ~aveTidalRange)
       } else {
         leafletProxy("leafletMap", data = stations[stations$group == unique(sx$group), ]) %>%
           clearGroup("region") %>%
-          addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), popup = ~as.character(details), col = "red", group = "region", radius = ~aveTidalRange)
+          # addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), popup = ~as.character(details), col = "red", group = "region", radius = ~aveTidalRange)
+        addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), col = "red", group = "region", radius = ~aveTidalRange)
       }
 
     } else if(nrow(sx) > 0) {
@@ -184,7 +186,8 @@ server <- function(input, output, session) {
     if(nrow(sx) == 1) {
       leafletProxy("leafletMap", data = sx) %>%
         clearGroup("station") %>%
-        addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), popup = ~as.character(details), col = "green", group = "station", radius = ~aveTidalRange)
+        addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), col = "green", group = "station", radius = ~aveTidalRange)
+      # addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), popup = ~as.character(details), col = "green", group = "station", radius = ~aveTidalRange)
     }
   })
   
@@ -196,7 +199,8 @@ server <- function(input, output, session) {
       showModal(modalDialog("Must Select a State, Region, and Station to Build this Plot. (There are some cases of duplicate station names, such as Anchor Point, which is why you have to specify all three.)"))
       return(NULL)
     }
-    readOne(stations$Id[stations$state == input$state & stations$group == input$region & stations$stationName == input$station])
+    getStationData(stations$Id[stations$state == input$state & stations$group == input$region & stations$stationName == input$station])
+    # read_tides(stations$Id[stations$state == input$state & stations$group == input$region & stations$stationName == input$station])
   })
   
   stationName <- eventReactive(input$makeStationPlot, {
@@ -239,8 +243,10 @@ server <- function(input, output, session) {
   # Leaflet map
   output$leafletMap <- renderLeaflet({
     leaflet(stations) %>% addTiles() %>%
-      setView(lng = -150, lat = 62.5, zoom = 4) %>%
-      addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), popup = ~as.character(details), radius = ~aveTidalRange)
+      fitBounds(-124.622, 41.83, -121.9, 46.52) %>%
+      # setView(lng = -123, lat = 44, zoom = 6) %>%
+      # addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), popup = ~as.character(details), radius = ~aveTidalRange)
+      addCircleMarkers(~Lon, ~Lat, label = ~as.character(stationName), radius = ~aveTidalRange)
   })
   
   # ggplots

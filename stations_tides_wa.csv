@@ -1,4 +1,4 @@
-﻿state,group,subgroup,name,Id,Lat,Lon,Predictions
+﻿state,group,subgroup,Name,Id,Lat,Lon,Predictions
 Washington,    Columbia River,,        Columbia River entrance (N. Jetty),9440574,46.2733,-124.072,Subordinate
 Washington,    Columbia River,,        Cape Disappointment,9440581,46.281,-124.0463,Harmonic
 Washington,    Columbia River,,"        Fort Canby, Jetty 'A', Wash.",9440572,46.2683,-124.037,Subordinate
