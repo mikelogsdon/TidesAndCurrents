@@ -4,6 +4,7 @@ library(leaflet)
 library(plyr)
 library(dplyr)
 library(RSQLite)
+library(lubridate)
 
 
 load("stations.rda")
@@ -64,28 +65,28 @@ returnBounds <- function(sx) {
 
 
 makeTideSummary2 <- function(tides, nyears, limit = 100) {
-  # print(dim(tides)); print(max(tides$Date.Time))
+  # print(dim(tides)); print(max(tides$Date_Time))
   currentYear <- lubridate::year(lubridate::today())
-  tides <- tides[lubridate::year(tides$Date.Time) %in% seq(currentYear, currentYear + nyears - 1), ]
+  tides <- tides[lubridate::year(tides$Date_Time) %in% seq(currentYear, currentYear + nyears - 1), ]
   if(tides$Type[1] == "H") tides <- arrange(tides, -Prediction)
-  tides[1:limit, c("Prediction", "Date.Time", "stationName", "group")]
+  tides[1:limit, c("Prediction", "Date_Time", "stationName", "group")]
 }
 
-state <- "Alaska"; ids <- stations$Id[stations$group == "Cook Inlet"]; type = "L"; maxYear <- 2020
+# state <- "Alaska"; ids <- stations$Id[stations$group == "Cook Inlet"]; type = "L"; maxYear <- 2020
 makeTideSummary3 <- function(state, ids, type, nyears) {
   tides <- getTides(state, Id = ids, type = type, limit = NULL, nyears = nyears)
-  # print(dim(tides)); print(max(tides$Date.Time))
+  # print(dim(tides)); print(max(tides$Date_Time))
   tides$top100 <- 1:nrow(tides) <= 100
   top100 <- aggregate(top100 ~ Id, data = tides, FUN = sum)
   byStation <- ddply(tides, .(Id), function(x) {
-    x <- arrange(x, Date.Time)
+    x <- arrange(x, Date_Time)
     tidalRange <- diff(x$Prediction)
     data.frame(
       "aveTidalRange" = mean(tidalRange[tidalRange>0]),
       "lowestPredicted" = min(x$Prediction),
-      "lowestDate" = x$Date.Time[which.min(x$Prediction)],
+      "lowestDate" = x$Date_Time[which.min(x$Prediction)],
       "highestPredicted" = max(x$Prediction),
-      "highestDate" = x$Date.Time[which.max(x$Prediction)]
+      "highestDate" = x$Date_Time[which.max(x$Prediction)]
     )
   })
   stations2 <- stations
@@ -115,7 +116,7 @@ get_tide_by_id <- function(idx) {
     )
   )
   dbDisconnect(conn)
-  tmp$Date.Time <- as.POSIXct(tmp$Date.Time, origin = "1970-01-01")
+  tmp$Date_Time <- as.POSIXct(tmp$Date_Time, origin = "1970-01-01", tz = "UTC")
   return(tmp)
 }
 
@@ -138,7 +139,7 @@ getTides <- function(state, Id = NULL, region = NULL, station = NULL, type = NUL
   
   if(!is.null(nyears)) {
     maxYear <- lubridate::year(lubridate::today()) + nyears - 1
-    tmp <- tmp[lubridate::year(tmp$Date.Time) <= maxYear, ]
+    tmp <- tmp[lubridate::year(tmp$Date_Time) <= maxYear, ]
   }
   
   # tmp <- merge(tmp, stations[, c("Id", "group", "subgroup", "state", "stationName")])
@@ -161,37 +162,53 @@ getTides <- function(state, Id = NULL, region = NULL, station = NULL, type = NUL
 
 getStationData <- function(stationId) {
   conn <- dbConnect(SQLite(), dbname = "tide_preds.db")
-  tmp <- dbGetQuery(
+  pattern_data <- dbGetQuery(
     conn,
     sprintf(
       "SELECT * FROM pattern_data WHERE Id = '%s'",
       stationId
     )
   )
+  stats_data <- dbGetQuery(
+    conn,
+    sprintf(
+      "SELECT * FROM stats_by_year WHERE Id = '%s'",
+      stationId
+    )
+  )
+  lows_data <- dbGetQuery(
+    conn,
+    sprintf(
+      "SELECT Id,Date_Time,Prediction,year FROM tide_preds WHERE Id = '%s' AND Prediction < %s",
+      stationId, stations$q05[stations$Id == stationId]
+    )
+  )
   dbDisconnect(conn)
-  tmp$Date.Time <- as.POSIXct(tmp$Date.Time, origin = "1970-01-01")
-  return(tmp)
-  read_tides(stationId)
+  pattern_data$Date_Time <- as.POSIXct(pattern_data$Date_Time, origin = "1970-01-01", tz = "UTC")
+  lows_data$Date_Time <- as.POSIXct(lows_data$Date_Time, origin = "1970-01-01", tz = "UTC")
+  return(list(pattern_data, stats_data, lows_data))
+  # read_tides(stationId)
   
 }
 
-plotStationMonthly <- function(test, stationName) {
-  if(is.null(test)) {
+plotStationMonthly <- function(stationData, stationName) {
+  pattern_data <- stationData[[1]]
+  if(is.null(pattern_data)) {
     return(ggplot() + geom_blank())
   }
-  # test <- getTides(Id = stationId)
-  # test <- read_tides(stationId)
+  # pattern_data <- getTides(Id = stationId)
+  # pattern_data <- read_tides(stationId)
   
-  test$hour <- lubridate::hour(test$Date.Time) + lubridate::minute(test$Date.Time) / 60
-  test$month <- lubridate::month(test$Date.Time, label = TRUE, abbr = FALSE)
-  test$year <- lubridate::year(test$Date.Time)
-  test <- arrange(test, Prediction)
-  head(test)
+  pattern_data$hour <- lubridate::hour(pattern_data$Date_Time) + lubridate::minute(pattern_data$Date_Time) / 60
+  pattern_data$month <- lubridate::month(pattern_data$Date_Time, label = TRUE, abbr = FALSE)
+  pattern_data$year <- lubridate::year(pattern_data$Date_Time)
+  pattern_data <- arrange(pattern_data, Prediction)
+  # head(test)
   
   
   hourBreaks <- seq(0, 22, 2)
   hourLabels <- c("Midnight", "2AM", "4AM", "6AM", "8AM", "10AM", "Noon", "2PM", "4PM", "6PM", "8PM", "10PM")
-  ggplot(test) + theme_bw() +
+  ggplot(pattern_data) + theme_bw() +
     geom_point(aes(hour, Prediction, col = Type)) +
     facet_wrap(~month) +
     geom_hline(yintercept = 0, linetype = "dashed") +
@@ -203,39 +220,66 @@ plotStationMonthly <- function(test, stationName) {
 }
 
 # stationId <- "9455912"
-plotStationYearly <- function(test, stationName) {
-  if(is.null(test)) {
+plotStationYearly <- function(stationData, stationName) {
+  if(is.null(stationData)) {
     return(ggplot() + geom_blank())
   }
+  stats_data <- stationData[[2]]
   # test <- read_tides(stationId)
   
-  # test$hour <- lubridate::hour(test$Date.Time) + lubridate::minute(test$Date.Time) / 60
-  # test$month <- lubridate::month(test$Date.Time, label = TRUE, abbr = FALSE)
-  test$year <- lubridate::year(test$Date.Time)
+  # test$hour <- lubridate::hour(test$Date_Time) + lubridate::minute(test$Date_Time) / 60
+  # test$month <- lubridate::month(test$Date_Time, label = TRUE, abbr = FALSE)
   
-  byYear <- ddply(test, .(year, Type), function(x) {
-    data.frame(
-      "min" = min(x$Prediction),
-      "q25" = as.numeric(quantile(x$Prediction, .25)),
-      "q50" = as.numeric(quantile(x$Prediction, .50)),
-      "q75" = as.numeric(quantile(x$Prediction, .75)),
-      "max" = max(x$Prediction)
-    )
-  })
-  byYearLong <- reshape2::melt(byYear, id.vars = c("year", "Type"))
-  byYearLong$variable <- factor(byYearLong$variable, levels = c("max", "q75", "q50", "q25", "min"), ordered = TRUE)
+  # cur_year <- year(today())
+  # min_year_lab <- ceiling(cur_year / 2) * 2
+  # max_year_lab <- min_year_lab + 18
+  
+  byYearLong <- reshape2::melt(stats_data, id.vars = c("Id", "year", "Type"))
+  varsToUse <- c("max", "q975", "q75", "q50", "q25", "q025", "min")
+  byYearLong <- byYearLong %>% filter(variable %in% varsToUse)
+  byYearLong$variable <- factor(byYearLong$variable, levels = varsToUse, ordered = TRUE)
   byYearLong$Type <- factor(byYearLong$Type, levels = c("L", "H"), labels = c("Low Tide", "High Tide"), ordered = TRUE)
+  stat_labs <- c("Max", "97.5%", "3rd Quartile", "Median", "1st Quartile", "2.5%", "Min")
   ggplot(byYearLong) + theme_bw() +
     geom_point(aes(year, value, col = variable, shape = variable), size = 2) +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-    scale_x_continuous(breaks = seq(2018, 2036, by = 2)) +
+    # scale_x_continuous(breaks = seq(min_year_lab, max_year_lab, by = 2)) +
     xlab("") + ylab("Tide Prediction Height (MLLW)") +
-    scale_colour_discrete("Summary Stat", labels = c("Max", "3rd Quartile", "Median", "1st Quartile", "Min")) +
-    scale_shape_discrete(name = "Summary Stat", labels = c("Max", "3rd Quartile", "Median", "1st Quartile", "Min")) +
+    scale_colour_discrete("Summary Stat", labels = stat_labs) +
+    scale_shape_manual(name = "Summary Stat", values = 1:7, labels = stat_labs) +
     facet_wrap(~Type, scales = "free_y") +
     ggtitle(sprintf("Yearly Tide Prediction Statistics for %s", stationName))
 
 }
+
+
+plotStationLows <- function(stationData, stationName) {
+  lows_data <- stationData[[3]]
+  lows_data$time2 <- lows_data$Date_Time
+  year(lows_data$time2) <- 2020
+  lows_data$catx <- "Good"
+  lows_data$catx[lows_data$Prediction < stations$q025[stations$Id == lows_data$Id[1]]] <- "Great"
+  lows_data$catx[lows_data$Prediction < stations$q01[stations$Id == lows_data$Id[1]]] <- "Outstanding"
+  lows_data$catx <- factor(lows_data$catx, levels = c("Good", "Great", "Outstanding"), ordered = TRUE)
+  
+  minyr <- ceiling(min(lows_data$year) / 2) * 2
+  maxyr <- minyr + 18
+  lows_data <- arrange(lows_data, desc(catx))
+  
+  ggplot(lows_data) + theme_bw() +
+    geom_point(aes(x = year, y = time2, col = catx, size = Prediction), alpha = .8) +
+    scale_y_datetime(
+      breaks = scales::date_breaks(width = "1 month"), 
+      labels = scales::date_format("%B")) +
+    scale_x_continuous(breaks = seq(minyr, maxyr, by = 2)) +
+    scale_colour_viridis_d(name = "Low Tide") +
+    scale_size_continuous(range = c(10, 1)) +
+    # scale_size_discrete(name = "Low Tide") +#, range = c(2, 4, 8)) +
+    ggtitle(sprintf("Distribution of Low Tides for %s", stationName)) +
+    xlab("Year") + ylab("Month")
+  
+}
+
 
 # state <- "Alaska"; stationids <- stations$Id[stations$group == "Cook Inlet"]
 lowTidePlot <- function(state, stationids) {
@@ -257,29 +301,17 @@ makeNotes <- function() {
     "<h4>Alternate Title: It Was the Best of Tides, It Was the Worst of Tides</h5>",
     "<p>This tool uses the tidal predictions issued by the National Oceanic and Atmospheric Administration to facilitate exploration of interesting or unusual tides.",
     "You can learn more about NOAA tidal predictions <a href 'https://tidesandcurrents.noaa.gov/PageHelp.html'>here</a>.",
-    "Current support is for Alaska, Washington, and Oregon on the west coast of the United States. This tool stores the 25 most extreme tides by station and by year, as well as a sample of all tidal predictions to make the tidal pattern graphics.</p>",
+    "Current support is for Alaska, Washington, Oregon, and California on the west coast of the United States. This tool stores the 50 most extreme tides by station and by year, as well as a sample of all tidal predictions to make the tidal pattern graphics.</p>",
     "<p>The tool is meant to be useful for learning in general about tidal patterns, for example the extremes of Alaska's Cook Inlet versus the much milder tides of the Arctic Ocean versus the Bactrian Camel tides of Puget Sound.",
     "In addition, it is intended to be used for finding specific, interesting tides by location.",
     "For example, I live in the Puget Sound region of Washington, and I may be interested in the largest minus tide of the year at the nearest beach, or more broadly I might be interested in planning around the largest minus tide in the area in the next ten years.</p>",
     "<h5>Credits</h5>",
     "<p>The idea for this tool came from a conversation with Ruth Hulbert, a bookseller and artist in Palmer, Alaska, and Cynthia Hansen, a lab tech in Bellingham, Washington.",
     # "<p>This idea was pitched and first explored by Ruth Hulbert, a bookseller and artist in Palmer, Alaska, and Cynthia Hansen, a lab tech in Bellingham, Washington.",
-    "The tool was built by Mike Logsdon, a data analyst in Seattle, Washington. All three are considerable beach enthusiasts.</p>"
+    "The tool was built by Mike Logsdon, a data analyst in Seattle, Washington. All three are considerable beach enthusiasts.</p>",
+    "<p>Code to build the datasets and create the app can be found at <a href 'https://github.com/mikelogsdon/TidesAndCurrents'>GitHub</a></p>",
+    "<p>Contact me with questions or comments mikelogsdon87 at outlook dot com</p>"
   )
-}
-
-
-
-writeComment <- function(name, email, comment) {
-  api_token = "xoxb-6921139457-XOh4FpYyTShXPHehGgdFkqIb"
-  
-  chatText <- sprintf("On %s, %s at %s says the following:\n%s", lubridate::now(), name, email, comment)
-  
-  httr::POST(url = "https://slack.com/api/chat.postMessage",
-             body = list(token = api_token, channel = "@mltheproducer",
-                         username = "fake_professor_sled",
-                         text = chatText,
-                         icon_url = "https://pbs.twimg.com/profile_images/573181116561014784/zwXSbgvh.jpeg"))
 }
 
 

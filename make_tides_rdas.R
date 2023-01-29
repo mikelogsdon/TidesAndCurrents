@@ -43,21 +43,21 @@ keep_by_year <- function(tide_preds, ntides = 25) {
   rbind(low_tides, high_tides)
 }
 
-# Read the tides from NOAA, calc stats, discard non top 25 by year
+# Read the tides from NOAA, calc stats
 read_and_process_one <- function(stationId) {
   tide_preds <- read_tides(stationId)
   tide_stats <- calc_stats(tide_preds)
   return(
     list(
       "metadata" = tide_stats,
-      "preds" = keep_by_year(tide_preds, ntides = 50)
-      # "preds" = tide_preds
+      # "preds" = keep_by_year(tide_preds, ntides = 50)
+      "preds" = tide_preds
     )
   )
 }
 
-system.time(test <- read_and_process_one(9449211))
-system.time(read_and_process_one(9454755))
+# system.time(test <- read_and_process_one(9450104))
+# system.time(read_and_process_one(9454755))
 
 tideDataAll <- lapply(stations$Id, function(ix) {
   print(ix)
@@ -75,28 +75,80 @@ tideDataAll <- lapply(stations$Id, function(ix) {
 tide_metadata <- do.call('rbind', lapply(tideDataAll, function(x) x[[1]]))
 tide_preds <- do.call('rbind', lapply(tideDataAll, function(x) x[[2]]))
 
+# Save out all the preds, because we're going to monkey with it
+saveRDS(file = "tide_preds.rds", tide_preds)
+saveRDS(file = "tide_metadata.rds", tide_metadata)
+tide_preds <- readRDS("tide_preds.rds")
+tide_metadata <- readRDS("tide_metadata.rds")
+
 rm(tideDataAll)
-tide_preds2 <- tide_preds
-save(file = "tide_preds.rda", tide_preds2)
-load("tide_preds.rda")
-tide_preds <- tide_preds2
+
+# Establish a database to write to
+conn <- dbConnect(SQLite(), dbname = "./tidefinder/tide_preds.db")
+tide_preds <- rename(tide_preds, Date_Time = Date.Time)
+
+# Calculate stats by station by year for the yearly pattern plot
+stats_by_year <- tide_preds %>%
+  group_by(Id, year, Type) %>%
+  summarise(
+    "min" = min(Prediction),
+    "q025" = as.numeric(quantile(Prediction, .025)),
+    "q25" = as.numeric(quantile(Prediction, .25)),
+    "q50" = as.numeric(quantile(Prediction, .50)),
+    "q75" = as.numeric(quantile(Prediction, .75)),
+    "q975" = as.numeric(quantile(Prediction, .975)),
+    "max" = max(Prediction)
+  )
+dbWriteTable(conn, "stats_by_year", stats_by_year, overwrite = TRUE)
+dbSendQuery(conn, "CREATE INDEX stats_id ON stats_by_year(Id)")
+# system.time(test <- dbGetQuery(conn, "SELECT * FROM stats_by_year WHERE Id='9449211'"))
 
 
+
+# Pull out a sample for the monthly pattern plot
+
+# Store a sample for the monthly pattern plot
+n_per_mo <- 150
+tide_preds$month <- month(tide_preds$Date_Time)
+tide_preds$rand <- runif(n = nrow(tide_preds), min = 0, max = 1)
+pattern_data <- tide_preds %>%
+  group_by(Id, month, Type) %>%
+  slice_min(rand, n = n_per_mo)
+
+dbWriteTable(conn, "pattern_data", pattern_data[, c("Date_Time", "Prediction", "Type", "Id")], overwrite = TRUE)
+dbSendQuery(conn, "CREATE INDEX pattern_id ON pattern_data(Id)")
+
+# system.time(abc <- dbGetQuery(conn, "SELECT * FROM pattern_data WHERE Id == '9464881'"))
+
+
+# Calculate some more stats to the metadata (this let's us add things without spending 3 hours rerunning all the code)
+lowstats <- tide_preds %>%
+  filter(Type == 'L') %>%
+  group_by(Id) %>%
+  summarise(
+    "q01" = as.numeric(quantile(Prediction, .01)),
+    "q025" = as.numeric(quantile(Prediction, .025)),
+    "q05" = as.numeric(quantile(Prediction, .05))
+  )
+
+
+# Keep top 50 H/L by year to save into the database
 tide_preds <- by(tide_preds, tide_preds$Id, keep_by_year)
 tide_preds <- do.call('rbind', tide_preds)
+tide_preds <- tide_preds[, c("Date_Time", "Prediction", "Type", "Id", "year")]
 
+# Merge in station info, write database
 tide_preds <- merge(tide_preds, stations[, c("Id", "group", "subgroup", "state", "stationName")])
 
 
-conn <- dbConnect(SQLite(), dbname = "./tidefinder/tide_preds.db")
 dbWriteTable(conn, "tide_preds", tide_preds, overwrite = TRUE)
 dbSendQuery(conn, "CREATE INDEX stationid ON tide_preds(Id)")
 # system.time(test <- dbGetQuery(conn, sprintf("SELECT * FROM tide_preds WHERE Id=%s", 9464881)))
 # test <- dbGetQuery(conn, sprintf("SELECT * FROM tide_preds WHERE Id=%s", 9464881))
 
 
-
-# merge the stats into stations
+# Merge all the metadata together, then merge that with the station dataset
+tide_metadata <- merge(tide_metadata, lowstats)
 stations <- merge(stations, tide_metadata)
 stations <- stations[!duplicated(stations$Id), ]
 stations$Lon[stations$Lon > 0] <- stations$Lon[stations$Lon > 0] -360
@@ -105,32 +157,8 @@ stations <- stations[stations$Lat > 32.5, ]
 save(file = "./tidefinder/stations.rda", stations)
 
 
-# Store a sample
-n_per_mo <- 150
-tide_preds2$month <- month(tide_preds2$Date.Time)
-tide_preds2$rand <- runif(n = nrow(tide_preds2), min = 0, max = 1)
-patternx <- tide_preds2 %>%
-  group_by(Id,month, Type) %>%
-  slice_min(rand, n = n_per_mo)
-  
-dbWriteTable(conn, "pattern_data", patternx[, c("Date.Time", "Prediction", "Type", "Id")], overwrite = TRUE)
-dbSendQuery(conn, "CREATE INDEX stationid2 ON pattern_data(Id)")
 
-system.time(abc <- dbGetQuery(conn, "SELECT * FROM pattern_data WHERE Id == '9464881'"))
 
 dbDisconnect(conn)
-
-# 
-# system.time(test <- tide_preds[tide_preds$Id == 9464881, ])
-# save(file = "./tidefinder/tide_preds.rda", tide_preds)
-# 
-# 
-# 
-# or_metadata <- do.call('rbind', lapply(oregon, function(x) x[[1]]))
-# or_preds <- do.call('rbind', lapply(oregon, function(x) x[[2]]))
-# save(file = "or_preds.rda", or_preds)
-# 
-# system.time(tide_preds %>% filter(Id == 9434132))
-
 
 

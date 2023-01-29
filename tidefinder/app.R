@@ -49,7 +49,7 @@ ui <- fluidPage(
             "Tidal Pattern",
             h4("This page creates graphics showing tidal patterns for a selected station. You'll have to press the button to rebuild the plot after changing stations."),
             h5("As an example, build the plot for an Arctic Ocean site, a Puget Sound site, and then a Cook Inlet site and note the differences."),
-            radioButtons("patternToggle", "Plot Station Tidal Patterns", choices = c("Monthly", "Yearly"), selected = "Monthly", inline = TRUE),
+            radioButtons("patternToggle", "Plot Station Tidal Patterns", choices = c("Monthly", "Yearly", "Low Tides"), selected = "Monthly", inline = TRUE),
             actionButton("makeStationPlot", label = "Make Station Plot"),
             conditionalPanel(
               condition = "input.patternToggle == 'Monthly'",
@@ -58,19 +58,15 @@ ui <- fluidPage(
             conditionalPanel(
               condition = "input.patternToggle == 'Yearly'",
               plotOutput("stationPlotYearly", width = "100%", height = "600px")
+            ),
+            conditionalPanel(
+              condition = "input.patternToggle == 'Low Tides'",
+              plotOutput("stationPlotLows", width = "100%", height = "600px")
             )
           ),
           tabPanel(
             "Notes",
             uiOutput("notes")
-          ),
-          tabPanel(
-            "Contact",
-            h4("Use this form to submit a comment or question. Note that this project is not supported by staff or budget!"),
-            textInput("name", "Name"),
-            textInput("email", "Email:"),
-            textAreaInput("comment", "Comment", width = "800px", height = "200px"),
-            actionButton("submit", "Submit")
           )
         )
       )
@@ -256,6 +252,10 @@ server <- function(input, output, session) {
   
   output$stationPlotYearly <- renderPlot({
     plotStationYearly(stationData(), stationName())
+  }, res = 112)
+  
+  output$stationPlotLows <- renderPlot({
+    plotStationLows(stationData(), stationName())
   }, res = 112)
   
   output$notes <- renderUI(HTML(paste(makeNotes(), collapse = " ")))

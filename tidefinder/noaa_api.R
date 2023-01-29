@@ -1,6 +1,6 @@
 
 
-
+# product <- "water_level"; begin_date <- "20220905"; end_date <- "20220906"; station = "9449424"
 read.tides <- function(product, begin_date, end_date, station = "9447130", hiLow = FALSE) {
   urlBase <- "https://tidesandcurrents.noaa.gov/api/datagetter"
   options <- c(sprintf("product=%s", product),
@@ -27,8 +27,10 @@ read.tides <- function(product, begin_date, end_date, station = "9447130", hiLow
   if(hiLow) {
     return(dset)
   }
-  lubridate::minute(dset$Date.Time) <- 0
-  dset <- aggregate(. ~ Date.Time, FUN = mean, data = dset)
+  if(product == "predictions") {
+    lubridate::minute(dset$Date.Time) <- 0
+    dset <- aggregate(. ~ Date.Time, FUN = mean, data = dset)
+  }
   dset
 }
 
@@ -59,3 +61,12 @@ read_tides <- function(stationId) {
 
 
 
+# cherry point 9449424
+# test <- read.tides("water_level", "20220905", "20220906", 9449424)
+# test2 <- read.tides("predictions", "20220905", "20220906", 9449424)
+# head(test)
+# plot(test$Date.Time, test$Water.Level)
+# points(test2$Date.Time, test2$Prediction, col = "blue")
+# test3 <- merge(test, test2)
+# test3$diff <- test3$Water.Level - test3$Prediction
+# plot(test3$Date.Time, test3$diff)

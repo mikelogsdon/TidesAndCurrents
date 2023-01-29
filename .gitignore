@@ -19,6 +19,7 @@
 
 # RStudio files
 .Rproj.user/
+*.Rproj
 
 # produced vignettes
 vignettes/*.html
@@ -37,3 +38,11 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# Ignore R binary and SQLite db
+*.rds
+*.rda
+*.db
+
+# Shiny App Thing
+*rsconnect/
